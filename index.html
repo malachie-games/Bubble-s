@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bubble’s — Reflex Game</title>
+  <link rel="preload" href="assets/pop.wav" as="audio">
+  <link rel="preload" href="assets/win.wav" as="audio">
+  <link rel="preload" href="assets/fail.wav" as="audio">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="bg"></div>
+
+  <header class="hud glass">
+    <div class="stat"><span class="label">Niveau</span><span id="level">1</span></div>
+    <div class="stat"><span class="label">Score</span><span id="score">0</span></div>
+    <div class="stat timer">
+      <svg width="28" height="28" viewBox="0 0 36 36" class="progress">
+        <path class="bg" d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" />
+        <path class="fg" id="timer-path" d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" />
+      </svg>
+      <span id="time">00</span>
+    </div>
+    <button id="btnPause" class="btn ghost">Pause</button>
+  </header>
+
+  <main id="arena" class="arena">
+    <!-- bubbles rendered here -->
+  </main>
+
+  <footer class="controls glass">
+    <button id="btnPlay" class="btn primary">Jouer</button>
+    <button id="btnRestart" class="btn">Recommencer</button>
+    <div class="cfg">
+      <label>+Bulles / niveau
+        <select id="incBubbles">
+          <option value="3" selected>+3</option>
+          <option value="4">+4</option>
+        </select>
+      </label>
+      <label>Durée (s)
+        <select id="levelTime">
+          <option value="20">20</option>
+          <option value="25" selected>25</option>
+          <option value="30">30</option>
+        </select>
+      </label>
+    </div>
+  </footer>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="modal glass">
+      <h2 id="overlayTitle">Titre</h2>
+      <p id="overlayMsg">Message</p>
+      <button id="overlayBtn" class="btn primary">OK</button>
+    </div>
+  </div>
+
+  <audio id="sfx-pop" src="assets/pop.wav" preload="auto"></audio>
+  <audio id="sfx-win" src="assets/win.wav" preload="auto"></audio>
+  <audio id="sfx-fail" src="assets/fail.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
